@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 
 # OpenAI Web Arayüzü URL'si
-CHATGPT_URL = "https://chat.deepseek.com/"
+CHATGPT_URL = "https://chat.openai.com/"
 
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>", methods=["GET", "POST", "PUT", "DELETE"])
@@ -14,6 +14,10 @@ def proxy(path):
 
    headers = {key: value for key, value in request.headers if key != "Host"}
    headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64;) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.75 Safari/537.36"
+   headers["Referer"] = "https://chat.openai.com"
+   headers["Origin"] = "https://chat.openai.com"
+   headers["Accept-Language"] = "en-US,en;q=0.9"
+   headers["Cache-Control"] = "no-cache"
    data = request.get_data() if request.method != "GET" else None
 
    response = requests.request(
