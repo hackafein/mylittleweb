@@ -12,10 +12,10 @@ CHATGPT_URL = "https://chat.openai.com/"
 def proxy(path):
    url = f"{CHATGPT_URL}/{path}"
 
-   headers = {key: value for key, value in request.headers if key != "Host"}
+   headers = {key: value.replace("openai", "googleapis") if isinstance(value,str) else value for key, value in request.headers if key != "Host"}
    headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64;) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.75 Safari/537.36"
-   headers["Referer"] = "https://chat.openai.com"
-   headers["Origin"] = "https://chat.openai.com"
+   headers["Referer"] = "https://google.com"
+   headers["Origin"] = "https://google.com"
    headers["Accept-Language"] = "en-US,en;q=0.9"
    headers["Cache-Control"] = "no-cache"
    data = request.get_data() if request.method != "GET" else None
@@ -25,7 +25,7 @@ def proxy(path):
        url=url,
        headers=headers,
        data=data,
-       cookies=request.cookies if "cf_clearance" in request.cookies else None,
+       cookies={k.replace("openai", "wiki"): v for k, v in request.cookies.items()},
        allow_redirects=False
    )
 
