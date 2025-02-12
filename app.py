@@ -30,7 +30,7 @@ def proxy(path):
    if request.method == "POST":
        response = requests.post(url, headers=headers, data=request.data, cookies=cookies)
    else:
-       response = requests.get(url, headers=headers, cookies=cookies, allow_redirects=False)
+       response = requests.get(url, headers=headers, cookies=cookies)
 
    # Eğer OpenAI bir yönlendirme (redirect) yaparsa, proxy de yönlendirme yapsın
    if response.status_code in [301, 302, 303, 307, 308]:
