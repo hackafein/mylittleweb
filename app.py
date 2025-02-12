@@ -17,6 +17,7 @@ def proxy(path):
    headers["Referer"] = "https://google.com"
    headers["Origin"] = "https://google.com"
    headers["Accept-Language"] = "en-US,en;q=0.9"
+   headers["Accept-Encoding"] = "gzip, deflate, br"
    headers["Cache-Control"] = "no-cache"
    data = request.get_data() if request.method != "GET" else None
 
