@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 
 # OpenAI Web Arayüzü URL'si
-CHATGPT_URL = "https://chat.openai.com/"
+CHATGPT_URL = "https://chat.deepseek.com/"
 
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>", methods=["GET", "POST", "PUT", "DELETE"])
