@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> Web Tunnel</title>
+   <title>Selam - Hoş Geldiniz</title>
    <style>
        body, html {
            height: 100%;
@@ -12,17 +12,38 @@
            justify-content: center;
            align-items: center;
            background-color: #1a1a1a;
+           font-family: Arial, sans-serif;
        }
-       iframe {
-           width: 90%;
-           height: 90%;
-           border: none;
-           background: white;
+       .greeting-container {
+           text-align: center;
+           padding: 2rem;
+           background-color: #2a2a2a;
+           border-radius: 10px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+       }
+       .greeting-text {
+           color: #ffffff;
+           font-size: 3rem;
+           margin-bottom: 1rem;
+           font-weight: bold;
+       }
+       .subtitle {
+           color: #cccccc;
+           font-size: 1.2rem;
+           margin-bottom: 0.5rem;
+       }
+       .welcome-message {
+           color: #aaaaaa;
+           font-size: 1rem;
        }
    </style>
 </head>
 <body>
-   <iframe src="/proxy" frameborder="0"></iframe>
+   <div class="greeting-container">
+       <div class="greeting-text">Selam!</div>
+       <div class="subtitle">Hoş Geldiniz</div>
+       <div class="welcome-message">Küçük Web Uygulamamıza Hoş Geldiniz</div>
+   </div>
 </body>
 </html>
 
